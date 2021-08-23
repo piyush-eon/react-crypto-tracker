@@ -2,11 +2,11 @@
 
 ## Featues Todo
 
-- [] Design Similar to https://www.binance.com/en
-- [] Add to Wishlist
-- [] Info on hover
+- [ ] Design Similar to https://www.binance.com/en
+- [ ] Add to Wishlist
+- [ ] Info on hover
 - [x] carousel for trending coins
-- [] Market Capitalization | 24h Trading Volume | # of Coins
+- [ ] Market Capitalization | 24h Trading Volume | # of Coins
 
 ## Table Rows
 

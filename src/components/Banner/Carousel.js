@@ -44,7 +44,6 @@ const Carousel = () => {
           src={coin?.image}
           alt={coin.name}
           height="80"
-          width="80"
           style={{ marginBottom: 10 }}
         />
         <span>
@@ -57,10 +56,12 @@ const Carousel = () => {
             }}
           >
             {profit && "+"}
-            {coin?.price_change_percentage_24h}
+            {coin?.price_change_percentage_24h.toFixed(2)}%
           </span>
         </span>
-        <span style={{ fontSize: 22 }}>₹ {coin?.current_price}</span>
+        <span style={{ fontSize: 22, fontWeight: 500 }}>
+          ₹ {coin?.current_price}
+        </span>
       </div>
     );
   });

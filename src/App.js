@@ -1,6 +1,7 @@
 import { makeStyles } from "@material-ui/core";
 import "./App.css";
 import Banner from "./components/Banner/Banner";
+import CoinsTable from "./components/CoinsTable/CoinsTable";
 import Header from "./components/Header";
 
 const useStyles = makeStyles(() => ({
@@ -18,6 +19,7 @@ function App() {
     <div className={classes.App}>
       <Header />
       <Banner />
+      <CoinsTable />
     </div>
   );
 }

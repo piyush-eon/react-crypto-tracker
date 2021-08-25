@@ -34,13 +34,21 @@ function Banner() {
         <div className={classes.tagline}>
           <Typography
             variant="h2"
-            style={{ fontWeight: "bold", marginBottom: 15 }}
+            style={{
+              fontWeight: "bold",
+              marginBottom: 15,
+              fontFamily: "Montserrat",
+            }}
           >
             Crypto Hunter
           </Typography>
           <Typography
             variant="subtitle2"
-            style={{ color: "darkgrey", textTransform: "capitalize" }}
+            style={{
+              color: "darkgrey",
+              textTransform: "capitalize",
+              fontFamily: "Montserrat",
+            }}
           >
             Get all the Info regarding your favorite Crypto Currency
           </Typography>

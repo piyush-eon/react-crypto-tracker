@@ -17,6 +17,8 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flex: 1,
     color: "gold",
+    fontFamily: "Montserrat",
+    fontWeight: "bold",
   },
 }));
 

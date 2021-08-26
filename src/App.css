@@ -7,8 +7,7 @@
   scroll-behavior: smooth;
 }
 
-.App {
-  background-color: #1b1818;
-  color: white;
-  min-height: 100vh;
+a {
+  text-decoration: none;
+  color: gold;
 }

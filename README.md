@@ -2,7 +2,7 @@
 
 ## Featues Todo
 
-- [ ] Design Similar to https://www.binance.com/en
+- [x] Design Similar to https://www.binance.com/en
 - [ ] Add to Wishlist
 - [ ] Info on hover
 - [x] carousel for trending coins

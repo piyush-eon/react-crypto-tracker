@@ -12,6 +12,7 @@ import {
   ThemeProvider,
 } from "@material-ui/core/styles";
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -19,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
     color: "gold",
     fontFamily: "Montserrat",
     fontWeight: "bold",
+    cursor: "pointer",
   },
 }));
 
@@ -35,12 +37,18 @@ function Header() {
   const classes = useStyles();
   const [currency, setCurrency] = useState("USD");
 
+  const history = useHistory();
+
   return (
     <ThemeProvider theme={darkTheme}>
       <AppBar color="transparent" position="static">
         <Container>
           <Toolbar>
-            <Typography variant="h6" className={classes.title}>
+            <Typography
+              onClick={() => history.push(`/`)}
+              variant="h6"
+              className={classes.title}
+            >
               Crypto Hunter
             </Typography>
             {/* <Button color="inherit">Login</Button> */}
@@ -50,7 +58,7 @@ function Header() {
               id="demo-simple-select"
               value={currency}
               style={{ width: 100, height: 40, marginLeft: 15 }}
-              //   onChange={handleChange}
+              onChange={(e) => setCurrency(e.target.value)}
             >
               <MenuItem value={"USD"}>USD</MenuItem>
               <MenuItem value={"INR"}>INR</MenuItem>

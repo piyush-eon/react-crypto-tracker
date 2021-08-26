@@ -2,7 +2,8 @@ import { makeStyles } from "@material-ui/core";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import AliceCarousel from "react-alice-carousel";
-import { TrendingCoins } from "../../api";
+import { Link } from "react-router-dom";
+import { TrendingCoins } from "../../config/api";
 
 const Carousel = () => {
   const [trending, setTrending] = useState([]);
@@ -30,6 +31,7 @@ const Carousel = () => {
       alignItems: "center",
       cursor: "pointer",
       textTransform: "uppercase",
+      color: "white",
     },
   }));
 
@@ -39,7 +41,7 @@ const Carousel = () => {
     let profit = coin?.price_change_percentage_24h >= 0;
 
     return (
-      <div className={classes.carouselItem}>
+      <Link className={classes.carouselItem} to={`/coins/${coin.id}`}>
         <img
           src={coin?.image}
           alt={coin.name}
@@ -56,13 +58,13 @@ const Carousel = () => {
             }}
           >
             {profit && "+"}
-            {coin?.price_change_percentage_24h.toFixed(2)}%
+            {coin?.price_change_percentage_24h?.toFixed(2)}%
           </span>
         </span>
         <span style={{ fontSize: 22, fontWeight: 500 }}>
           ₹ {coin?.current_price}
         </span>
-      </div>
+      </Link>
     );
   });
 

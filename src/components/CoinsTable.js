@@ -1,23 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableContainer from "@material-ui/core/TableContainer";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
-import Paper from "@material-ui/core/Paper";
 import Pagination from "@material-ui/lab/Pagination";
 import {
   Container,
   createTheme,
+  TableCell,
   LinearProgress,
   ThemeProvider,
   Typography,
   TextField,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableContainer,
+  Table,
+  Paper,
 } from "@material-ui/core";
 import axios from "axios";
-import { CoinList } from "../../api";
+import { CoinList } from "../config/api";
+import { useHistory } from "react-router-dom";
 
 export default function CoinsTable() {
   const [coins, setCoins] = useState([]);
@@ -41,6 +42,9 @@ export default function CoinsTable() {
     },
   });
 
+  const classes = useStyles();
+  const history = useHistory();
+
   const darkTheme = createTheme({
     palette: {
       primary: {
@@ -49,8 +53,6 @@ export default function CoinsTable() {
       type: "dark",
     },
   });
-
-  const classes = useStyles();
 
   const fetchCoins = async () => {
     setLoading(true);
@@ -125,7 +127,11 @@ export default function CoinsTable() {
                   .map((row) => {
                     const profit = row.price_change_percentage_24h > 0;
                     return (
-                      <TableRow className={classes.row} key={row.name}>
+                      <TableRow
+                        onClick={() => history.push(`/coins/${row.id}`)}
+                        className={classes.row}
+                        key={row.name}
+                      >
                         <TableCell
                           component="th"
                           scope="row"

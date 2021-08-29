@@ -4,13 +4,13 @@
 
 - [x] Design Similar to https://www.binance.com/en
 - [ ] Add to Wishlist
-- [ ] Info on hover
+- [x] Charts for historical data
 - [x] carousel for trending coins
-- [ ] Market Capitalization | 24h Trading Volume | # of Coins
+- [x] Market Capitalization | 24h Trading Volume | # of Coins
 
 ## Table Rows
 
-Star | Coin | ID | Price | 24hChange% | Market Cap
+- [x] Star | Coin | ID | Price | 24hChange% | Market Cap
 
 ## Optional Features
 

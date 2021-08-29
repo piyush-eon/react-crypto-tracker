@@ -20,6 +20,10 @@ import axios from "axios";
 import { CoinList } from "../config/api";
 import { useHistory } from "react-router-dom";
 
+export function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 export default function CoinsTable() {
   const [coins, setCoins] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -78,10 +82,6 @@ export default function CoinsTable() {
         coin.symbol.toLowerCase().includes(search)
     );
   };
-
-  function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
 
   return (
     <ThemeProvider theme={darkTheme}>

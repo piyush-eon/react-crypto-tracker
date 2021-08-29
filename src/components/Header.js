@@ -11,7 +11,6 @@ import {
   makeStyles,
   ThemeProvider,
 } from "@material-ui/core/styles";
-import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { CryptoState } from "../CryptoContext";
 

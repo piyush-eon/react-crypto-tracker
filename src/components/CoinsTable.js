@@ -75,10 +75,6 @@ export default function CoinsTable() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currency]);
 
-  useEffect(() => {
-    window.scroll(0, 450);
-  }, [page]);
-
   const handleSearch = () => {
     return coins.filter(
       (coin) =>
@@ -205,7 +201,10 @@ export default function CoinsTable() {
             justifyContent: "center",
           }}
           classes={{ ul: classes.pagination }}
-          onChange={(_, value) => setPage(value)}
+          onChange={(_, value) => {
+            setPage(value);
+            window.scroll(0, 450);
+          }}
         />
       </Container>
     </ThemeProvider>

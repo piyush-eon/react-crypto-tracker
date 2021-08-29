@@ -19,6 +19,7 @@ import {
 import axios from "axios";
 import { CoinList } from "../config/api";
 import { useHistory } from "react-router-dom";
+import { CryptoState } from "../CryptoContext";
 
 export function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -29,6 +30,8 @@ export default function CoinsTable() {
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
+
+  const { currency, symbol } = CryptoState();
 
   const useStyles = makeStyles({
     row: {
@@ -60,7 +63,7 @@ export default function CoinsTable() {
 
   const fetchCoins = async () => {
     setLoading(true);
-    const { data } = await axios.get(CoinList);
+    const { data } = await axios.get(CoinList(currency));
     console.log(data);
 
     setCoins(data);
@@ -69,7 +72,8 @@ export default function CoinsTable() {
 
   useEffect(() => {
     fetchCoins();
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currency]);
 
   useEffect(() => {
     window.scroll(0, 450);
@@ -163,7 +167,8 @@ export default function CoinsTable() {
                           </div>
                         </TableCell>
                         <TableCell align="right">
-                          ₹ {numberWithCommas(row.current_price)}
+                          {symbol}{" "}
+                          {numberWithCommas(row.current_price.toFixed(2))}
                         </TableCell>
                         <TableCell
                           align="right"
@@ -176,7 +181,7 @@ export default function CoinsTable() {
                           {row.price_change_percentage_24h.toFixed(2)}%
                         </TableCell>
                         <TableCell align="right">
-                          ₹{" "}
+                          {symbol}{" "}
                           {numberWithCommas(
                             row.market_cap.toString().slice(0, -6)
                           )}

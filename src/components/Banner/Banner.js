@@ -9,6 +9,7 @@ const useStyles = makeStyles((theme) => ({
     height: 400,
     display: "flex",
     flexDirection: "column",
+    paddingTop: 25,
     justifyContent: "space-around",
   },
   tagline: {

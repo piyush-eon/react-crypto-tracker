@@ -13,6 +13,7 @@ import {
 } from "@material-ui/core/styles";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
+import { CryptoState } from "../CryptoContext";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -35,7 +36,7 @@ const darkTheme = createTheme({
 
 function Header() {
   const classes = useStyles();
-  const [currency, setCurrency] = useState("USD");
+  const { currency, setCurrency } = CryptoState();
 
   const history = useHistory();
 

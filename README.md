@@ -3,10 +3,10 @@
 ## Featues Todo
 
 - [x] Design Similar to https://www.binance.com/en
-- [ ] Add to Wishlist
 - [x] Charts for historical data
 - [x] carousel for trending coins
 - [x] Market Capitalization | 24h Trading Volume | # of Coins
+- [ ] Currency Object
 
 ## Table Rows
 
@@ -14,7 +14,8 @@
 
 ## Optional Features
 
-- Firebase Auth to store favorite Coins in second part
+- [ ] Firebase Authentication
+- [ ] Add to Wishlist
 
 ## Pics
 

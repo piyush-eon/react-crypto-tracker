@@ -6,10 +6,13 @@ import ReactHtmlParser from "react-html-parser";
 import CoinInfo from "../components/CoinInfo";
 import { SingleCoin } from "../config/api";
 import { numberWithCommas } from "../components/CoinsTable";
+import { CryptoState } from "../CryptoContext";
 
 const CoinPage = () => {
   const { id } = useParams();
   const [coin, setCoin] = useState();
+
+  const { currency, symbol } = CryptoState();
 
   const fetchCoin = async () => {
     const { data } = await axios.get(SingleCoin(id));
@@ -119,7 +122,10 @@ const CoinPage = () => {
                 fontFamily: "Montserrat",
               }}
             >
-              ₹ {numberWithCommas(coin?.market_data.current_price["inr"])}
+              {symbol}{" "}
+              {numberWithCommas(
+                coin?.market_data.current_price[currency.toLowerCase()]
+              )}
             </Typography>
           </span>
           <span style={{ display: "flex" }}>
@@ -133,9 +139,11 @@ const CoinPage = () => {
                 fontFamily: "Montserrat",
               }}
             >
-              ₹{" "}
+              {symbol}{" "}
               {numberWithCommas(
-                coin?.market_data.market_cap["inr"].toString().slice(0, -6)
+                coin?.market_data.market_cap[currency.toLowerCase()]
+                  .toString()
+                  .slice(0, -6)
               )}
               M
             </Typography>

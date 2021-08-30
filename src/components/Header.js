@@ -1,6 +1,5 @@
 import {
   AppBar,
-  Button,
   Container,
   MenuItem,
   Select,
@@ -14,6 +13,7 @@ import {
 } from "@material-ui/core/styles";
 import { useHistory } from "react-router-dom";
 import { CryptoState } from "../CryptoContext";
+import AuthModal from "./AuthModal";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -52,7 +52,6 @@ function Header() {
             >
               Crypto Hunter
             </Typography>
-
             <Select
               variant="outlined"
               labelId="demo-simple-select-label"
@@ -64,12 +63,8 @@ function Header() {
               <MenuItem value={"USD"}>USD</MenuItem>
               <MenuItem value={"INR"}>INR</MenuItem>
             </Select>
-            <Button
-              variant="contained"
-              style={{ width: 85, height: 40, marginLeft: 15 }}
-            >
-              Login
-            </Button>
+
+            <AuthModal />
           </Toolbar>
         </Container>
       </AppBar>

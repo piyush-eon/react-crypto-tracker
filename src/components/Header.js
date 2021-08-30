@@ -1,5 +1,6 @@
 import {
   AppBar,
+  Button,
   Container,
   MenuItem,
   Select,
@@ -51,18 +52,24 @@ function Header() {
             >
               Crypto Hunter
             </Typography>
-            {/* <Button color="inherit">Login</Button> */}
+
             <Select
               variant="outlined"
               labelId="demo-simple-select-label"
               id="demo-simple-select"
               value={currency}
-              style={{ width: 100, height: 40, marginLeft: 15 }}
+              style={{ width: 85, height: 40 }}
               onChange={(e) => setCurrency(e.target.value)}
             >
               <MenuItem value={"USD"}>USD</MenuItem>
               <MenuItem value={"INR"}>INR</MenuItem>
             </Select>
+            <Button
+              variant="contained"
+              style={{ width: 85, height: 40, marginLeft: 15 }}
+            >
+              Login
+            </Button>
           </Toolbar>
         </Container>
       </AppBar>

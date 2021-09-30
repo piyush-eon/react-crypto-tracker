@@ -21,7 +21,6 @@ const Signup = ({ handleClose }) => {
       return;
     }
 
-    console.log(email, password);
     try {
       const result = await createUserWithEmailAndPassword(
         auth,

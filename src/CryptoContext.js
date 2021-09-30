@@ -1,6 +1,9 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "./firebase";
+import { auth, db } from "./firebase";
+import axios from "axios";
+import { CoinList } from "./config/api";
+import { onSnapshot, doc } from "firebase/firestore";
 
 const Crypto = createContext();
 
@@ -13,6 +16,31 @@ const CryptoContext = ({ children }) => {
     type: "success",
   });
   const [user, setUser] = useState(null);
+  const [coins, setCoins] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [wishlist, setWishlist] = useState([]);
+
+  useEffect(() => {
+    if (user) {
+      const coinRef = doc(db, "wishlist", user?.uid);
+      var unsubscribe = onSnapshot(coinRef, (coin) => {
+        if (coin.exists()) {
+          console.log(coin.data().coins);
+          setWishlist(coin.data().coins);
+        } else {
+          setAlert({
+            open: true,
+            message: "Something went wrong",
+            type: "error",
+          });
+        }
+      });
+
+      return () => {
+        unsubscribe();
+      };
+    }
+  }, [user]);
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -21,14 +49,35 @@ const CryptoContext = ({ children }) => {
     });
   }, []);
 
+  const fetchCoins = async () => {
+    setLoading(true);
+    const { data } = await axios.get(CoinList(currency));
+
+    setCoins(data);
+    setLoading(false);
+  };
+
   useEffect(() => {
     if (currency === "INR") setSymbol("₹");
     else if (currency === "USD") setSymbol("$");
+
+    fetchCoins();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currency]);
 
   return (
     <Crypto.Provider
-      value={{ currency, setCurrency, symbol, alert, setAlert, user }}
+      value={{
+        currency,
+        setCurrency,
+        symbol,
+        alert,
+        setAlert,
+        user,
+        coins,
+        loading,
+        wishlist,
+      }}
     >
       {children}
     </Crypto.Provider>

@@ -20,7 +20,6 @@ const Login = ({ handleClose }) => {
       return;
     }
 
-    console.log(email, password);
     try {
       const result = await signInWithEmailAndPassword(auth, email, password);
       setAlert({

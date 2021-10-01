@@ -18,21 +18,17 @@ const CryptoContext = ({ children }) => {
   const [user, setUser] = useState(null);
   const [coins, setCoins] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [wishlist, setWishlist] = useState([]);
+  const [watchlist, setWatchlist] = useState([]);
 
   useEffect(() => {
     if (user) {
-      const coinRef = doc(db, "wishlist", user?.uid);
+      const coinRef = doc(db, "watchlist", user?.uid);
       var unsubscribe = onSnapshot(coinRef, (coin) => {
         if (coin.exists()) {
           console.log(coin.data().coins);
-          setWishlist(coin.data().coins);
+          setWatchlist(coin.data().coins);
         } else {
-          setAlert({
-            open: true,
-            message: "Something went wrong",
-            type: "error",
-          });
+          console.log("No Items in Watchlist");
         }
       });
 
@@ -76,7 +72,7 @@ const CryptoContext = ({ children }) => {
         user,
         coins,
         loading,
-        wishlist,
+        watchlist,
       }}
     >
       {children}

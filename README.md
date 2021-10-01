@@ -15,7 +15,7 @@
 ## Optional Features
 
 - [ ] Firebase Authentication
-- [ ] Add to Wishlist
+- [ ] Add to Watchlist
 
 ## Pics
 

@@ -12,14 +12,14 @@ import CoinInfo from "../components/CoinInfo";
 import { SingleCoin } from "../config/api";
 import { numberWithCommas } from "../components/CoinsTable";
 import { CryptoState } from "../CryptoContext";
-import { doc, setDoc, onSnapshot } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 import { db } from "../firebase";
 
 const CoinPage = () => {
   const { id } = useParams();
   const [coin, setCoin] = useState();
 
-  const { currency, symbol, user, setAlert, wishlist } = CryptoState();
+  const { currency, symbol, user, setAlert, watchlist } = CryptoState();
 
   const fetchCoin = async () => {
     const { data } = await axios.get(SingleCoin(id));
@@ -27,20 +27,20 @@ const CoinPage = () => {
     setCoin(data);
   };
 
-  const inWishlist = wishlist.includes(coin?.id);
+  const inWatchlist = watchlist.includes(coin?.id);
 
-  const addToWishlist = async () => {
-    const coinRef = doc(db, "wishlist", user.uid);
+  const addToWatchlist = async () => {
+    const coinRef = doc(db, "watchlist", user.uid);
     try {
       await setDoc(
         coinRef,
-        { coins: wishlist ? [...wishlist, coin?.id] : [coin?.id] },
+        { coins: watchlist ? [...watchlist, coin?.id] : [coin?.id] },
         { merge: true }
       );
 
       setAlert({
         open: true,
-        message: `${coin.name} Added to the Wishlist !`,
+        message: `${coin.name} Added to the Watchlist !`,
         type: "success",
       });
     } catch (error) {
@@ -52,18 +52,18 @@ const CoinPage = () => {
     }
   };
 
-  const removeFromWishlist = async () => {
-    const coinRef = doc(db, "wishlist", user.uid);
+  const removeFromWatchlist = async () => {
+    const coinRef = doc(db, "watchlist", user.uid);
     try {
       await setDoc(
         coinRef,
-        { coins: wishlist.filter((wish) => wish !== coin?.id) },
+        { coins: watchlist.filter((wish) => wish !== coin?.id) },
         { merge: true }
       );
 
       setAlert({
         open: true,
-        message: `${coin.name} Removed from the Wishlist !`,
+        message: `${coin.name} Removed from the Watchlist !`,
         type: "success",
       });
     } catch (error) {
@@ -205,11 +205,11 @@ const CoinPage = () => {
               style={{
                 width: "100%",
                 height: 40,
-                backgroundColor: inWishlist ? "#ff0000" : "#EEBC1D",
+                backgroundColor: inWatchlist ? "#ff0000" : "#EEBC1D",
               }}
-              onClick={inWishlist ? removeFromWishlist : addToWishlist}
+              onClick={inWatchlist ? removeFromWatchlist : addToWatchlist}
             >
-              {inWishlist ? "Remove from Wishlist" : "Add to Watchlist"}
+              {inWatchlist ? "Remove from Watchlist" : "Add to Watchlist"}
             </Button>
           )}
         </div>

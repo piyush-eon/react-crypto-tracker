@@ -8,7 +8,6 @@ import Login from "./Login";
 import { useState } from "react";
 import { CryptoState } from "../../CryptoContext";
 import { auth } from "../../firebase";
-import { signOut } from "firebase/auth";
 import GoogleButton from "react-google-button";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
@@ -39,7 +38,7 @@ export default function AuthModal() {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
 
-  const { user, setAlert } = CryptoState();
+  const { setAlert } = CryptoState();
 
   const handleOpen = () => {
     setOpen(true);
@@ -88,20 +87,9 @@ export default function AuthModal() {
           marginLeft: 15,
           backgroundColor: "#EEBC1D",
         }}
-        onClick={
-          user
-            ? () => {
-                signOut(auth);
-                setAlert({
-                  open: true,
-                  type: "success",
-                  message: "Logout Successfull !",
-                });
-              }
-            : handleOpen
-        }
+        onClick={handleOpen}
       >
-        {user ? "Logout" : "Login"}
+        Login
       </Button>
       <Modal
         aria-labelledby="transition-modal-title"

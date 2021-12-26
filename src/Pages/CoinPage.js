@@ -57,7 +57,7 @@ const CoinPage = () => {
     try {
       await setDoc(
         coinRef,
-        { coins: watchlist.filter((wish) => wish !== coin?.id) },
+        { coins: watchlist.filter((watch) => watch !== coin?.id) },
         { merge: true }
       );
 

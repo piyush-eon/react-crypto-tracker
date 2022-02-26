@@ -13,6 +13,7 @@ import {
 } from "@material-ui/core/styles";
 import { useHistory } from "react-router-dom";
 import { CryptoState } from "../CryptoContext";
+import AuthModal from "./Authentication/AuthModal";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -49,7 +50,7 @@ function Header() {
               variant="h6"
               className={classes.title}
             >
-              Crypto Hunter
+              SunadApp
             </Typography>
             {/* <Button color="inherit">Login</Button> */}
             <Select
@@ -63,6 +64,8 @@ function Header() {
               <MenuItem value={"USD"}>USD</MenuItem>
               <MenuItem value={"INR"}>INR</MenuItem>
             </Select>
+            
+            <AuthModal />
           </Toolbar>
         </Container>
       </AppBar>

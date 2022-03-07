@@ -15,6 +15,7 @@ import { useHistory } from "react-router-dom";
 import { CryptoState } from "../CryptoContext";
 import AuthModal from "./Authentication/AuthModal";
 
+
 const useStyles = makeStyles((theme) => ({
   title: {
     flex: 1,
@@ -24,6 +25,8 @@ const useStyles = makeStyles((theme) => ({
     cursor: "pointer",
   },
 }));
+
+
 
 const darkTheme = createTheme({
   palette: {
@@ -36,7 +39,7 @@ const darkTheme = createTheme({
 
 function Header() {
   const classes = useStyles();
-  const { currency, setCurrency } = CryptoState();
+  const { currency, setCurrency, user} = CryptoState();
 
   const history = useHistory();
 
@@ -65,7 +68,7 @@ function Header() {
               <MenuItem value={"INR"}>INR</MenuItem>
             </Select>
             
-            <AuthModal />
+            {user ? "logout" : <AuthModal />}
           </Toolbar>
         </Container>
       </AppBar>

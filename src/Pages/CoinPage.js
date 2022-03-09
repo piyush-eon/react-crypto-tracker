@@ -5,14 +5,13 @@ import { useParams } from "react-router-dom";
 import ReactHtmlParser from "react-html-parser";
 import CoinInfo from "../components/CoinInfo";
 import { SingleCoin } from "../config/api";
-import { numberWithCommas } from "../components/CoinsTable";
 import { CryptoState } from "../CryptoContext";
 
 const CoinPage = () => {
   const { id } = useParams();
   const [coin, setCoin] = useState();
 
-  const { currency, symbol } = CryptoState();
+  const { symbol } = CryptoState();
 
   const fetchCoin = async () => {
     const { data } = await axios.get(SingleCoin(id));
@@ -107,7 +106,7 @@ const CoinPage = () => {
                 fontFamily: "Montserrat",
               }}
             >
-              {numberWithCommas(coin?.market_cap_rank)}
+              
             </Typography>
           </span>
 
@@ -123,9 +122,9 @@ const CoinPage = () => {
               }}
             >
               {symbol}{" "}
-              {numberWithCommas(
+              {/* {numberWithCommas(
                 coin?.market_data.current_price[currency.toLowerCase()]
-              )}
+              )} */}
             </Typography>
           </span>
           <span style={{ display: "flex" }}>
@@ -140,11 +139,11 @@ const CoinPage = () => {
               }}
             >
               {symbol}{" "}
-              {numberWithCommas(
+              {/* {numberWithCommas(
                 coin?.market_data.market_cap[currency.toLowerCase()]
                   .toString()
                   .slice(0, -6)
-              )}
+              )} */}
               M
             </Typography>
           </span>

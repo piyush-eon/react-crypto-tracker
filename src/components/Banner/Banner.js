@@ -2,9 +2,6 @@ import { Container, makeStyles, Typography } from "@material-ui/core";
 import Carousel from "./Carousel";
 
 const useStyles = makeStyles((theme) => ({
-  banner: {
-    backgroundImage: "url(./banner2.jpg)",
-  },
   bannerContent: {
     height: 400,
     display: "flex",
@@ -41,7 +38,7 @@ function Banner() {
               fontFamily: "Montserrat",
             }}
           >
-            Crypto Hunter
+            MACP KUB
           </Typography>
           <Typography
             variant="subtitle2"
@@ -51,7 +48,7 @@ function Banner() {
               fontFamily: "Montserrat",
             }}
           >
-            Get all the Info regarding your favorite Crypto Currency
+            Bottom Text
           </Typography>
         </div>
         <Carousel />

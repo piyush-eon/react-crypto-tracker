@@ -1,12 +1,12 @@
 import React from "react";
 import Banner from "../components/Banner/Banner";
-import CoinsTable from "../components/CoinsTable";
+import InfoTable from "../components/InfoTable";
 
 const Homepage = () => {
   return (
     <>
       <Banner />
-      <CoinsTable />
+      <InfoTable />
     </>
   );
 };

@@ -6,6 +6,7 @@ import Fade from '@material-ui/core/Fade';
 import { AppBar, Tab, Tabs } from '@material-ui/core';
 import Signup from "./Signup";
 import Login from "./Login";
+import { Button } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -41,14 +42,18 @@ export default function AuthModal() {
 
   return (
     <div>
-      <button
-       varient="contained"
-       style={{
-           width:85, height:40, marginleft:15, backgroundColor: "#EEBC1D",}}
+      <Button
+        variant="contained"
+        style={{
+          width: 85,
+          height: 40,
+          marginLeft: 15,
+          backgroundColor: "#EEBC1D",
+        }}
         onClick={handleOpen}
-        >
-            Login
-        </button>
+      >
+        Login
+      </Button>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"

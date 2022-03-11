@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Carousel = () => {
+const Funcselect = () => {
   return (
     <div>Carousel</div>
   )
 }
 
-export default Carousel
+export default Funcselect

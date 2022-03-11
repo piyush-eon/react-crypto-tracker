@@ -1,3 +1,4 @@
+
 const firebaseConfig = {
 
     apiKey: "AIzaSyBQIto0hKEFYUaxs9i2HrHB-rfWVJjBBnM",
@@ -18,4 +19,5 @@ const firebaseConfig = {
   
   };
 
+  
 export default firebaseConfig;

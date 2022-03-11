@@ -1,5 +1,5 @@
 import { Container, makeStyles, Typography } from "@material-ui/core";
-import Carousel from "./Carousel";
+
 
 const useStyles = makeStyles((theme) => ({
   bannerContent: {
@@ -51,7 +51,6 @@ function Banner() {
             Bottom Text
           </Typography>
         </div>
-        <Carousel />
       </Container>
     </div>
   );

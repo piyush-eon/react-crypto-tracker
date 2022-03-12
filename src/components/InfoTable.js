@@ -1,9 +1,20 @@
+import { makeStyles } from '@material-ui/core'
 import { collection, onSnapshot } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
 import { db } from '../firebase'
 
 export default function InfoTable() {
   const [users, setUser] = useState([])
+
+  const useStyles = makeStyles((theme) => ({
+    display: {
+      display: "flex",
+      height: "200",
+      flexDirection: "column",
+      justifyContent: "center",
+      textAlign: "center",
+    },
+  }));
 
   useEffect(
     () =>
@@ -13,11 +24,13 @@ export default function InfoTable() {
     []
   );
 
+  const classes = useStyles();
+
   return (
-    <div className='container'>
+    <div className={classes.display}>
       {users.map((user) => (
         <div>
-          {user.name},{user.age}
+          name:{user.name}  age:{user.age}
         </div>
       ))}
     </div>

@@ -18,7 +18,7 @@ export default function InfoTable() {
 
   useEffect(
     () =>
-      onSnapshot(collection(db, "users"), (snapshot) =>
+      onSnapshot(collection(db, "Sensor Data"), (snapshot) =>
         setUser(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
       ),
     []
@@ -30,7 +30,7 @@ export default function InfoTable() {
     <div className={classes.display}>
       {users.map((user) => (
         <div>
-          name:{user.name}  age:{user.age}
+          Oxygen:{user.SpO2} TLC:{user.TLC} Temperature:{user.Temp} 
         </div>
       ))}
     </div>

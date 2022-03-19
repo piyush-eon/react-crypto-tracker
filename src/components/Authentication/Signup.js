@@ -1,9 +1,10 @@
 import React from 'react'
 import { useState } from 'react'
 import { Box, Button, TextField } from "@material-ui/core";
-import { CryptoState  } from '../../CryptoContext';
+import { CryptoState } from '../../CryptoContext';
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../firebase";
+import { auth , db } from "../../firebase";
+import { doc, setDoc } from "firebase/firestore";
 
 const Signup = ({ handleClose }) => {
     const [email,setEmail] = useState("");
@@ -24,12 +25,15 @@ const Signup = ({ handleClose }) => {
 
       try {
         const result = await createUserWithEmailAndPassword(auth,email,password);
-
+        const user = result.user;
+        await setDoc(doc(db, "users", user.uid), {
+        uid: user.uid, authProvider: "local", email,
+      });
         setAlert({
         open: true,
         message: `Sign Up Successful. Welcome ${result.user.email}`,
         type: "success",
-        });
+        }); 
         handleClose();
 
       } catch (error) {

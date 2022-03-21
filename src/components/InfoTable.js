@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core'
+import { makeStyles, Typography } from '@material-ui/core'
 import { CryptoState } from '../CryptoContext';
 import { useState, useEffect } from 'react'
 import React from 'react'
@@ -19,7 +19,7 @@ function InfoTable() {
     },
     header: {
       display: "flex",
-      height: "200",
+      fontSize: "200",
       flexDirection: "column",    
       justifyContent: "center",
       textAlign: "center",
@@ -41,10 +41,19 @@ function InfoTable() {
 
   return (
     <div className={classes.header}>
-      Info
-      <div className={classes.display}>
-        Oxgen:{Info && Info.SpO2} Temp:{Info && Info.Temp} Lung volume:{Info && Info.TLC}
-      </div>
+      <Typography
+            variant="h4"
+            style={{
+              fontWeight: "normal",
+              marginBottom: 10,
+              fontFamily: "Montserrat",
+            }}
+          >
+            Info
+          </Typography>
+      <div>Oxgen: {Info && Info.SpO2}</div>
+      <div>Temp: {Info && Info.Temp} celcius</div>
+      <div>Lung volume: {Info && Info.TLC}</div>
     </div>
   )
 }

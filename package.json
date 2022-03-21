@@ -1,5 +1,5 @@
 {
-  "name": "crypto-tracker",
+  "name": "macp",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -28,8 +28,8 @@
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "SunadApp",
+      "Sunad-App/jest"
     ]
   },
   "browserslist": {

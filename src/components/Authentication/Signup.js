@@ -27,7 +27,7 @@ const Signup = ({ handleClose }) => {
         const result = await createUserWithEmailAndPassword(auth,email,password);
         const user = result.user;
         await setDoc(doc(db, "users", user.uid), {
-        uid: user.uid, authProvider: "local", email,
+        uid: user.uid, email,
       });
         setAlert({
         open: true,

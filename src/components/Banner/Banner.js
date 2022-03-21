@@ -38,7 +38,7 @@ function Banner() {
               fontFamily: "Montserrat",
             }}
           >
-            MACP KUB
+            MACP
           </Typography>
           <Typography
             variant="subtitle2"

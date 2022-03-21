@@ -19,7 +19,7 @@ function InfoTable() {
     },
     header: {
       display: "flex",
-      height: "400",
+      height: "200",
       flexDirection: "column",    
       justifyContent: "center",
       textAlign: "center",
@@ -43,7 +43,7 @@ function InfoTable() {
     <div className={classes.header}>
       Info
       <div className={classes.display}>
-        email:{Info && Info.email} Oxgen:{Info && Info.SpO2} Temp:{Info && Info.Temp}
+        Oxgen:{Info && Info.SpO2} Temp:{Info && Info.Temp} Lung volume:{Info && Info.TLC}
       </div>
     </div>
   )

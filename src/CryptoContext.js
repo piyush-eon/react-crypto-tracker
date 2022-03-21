@@ -1,6 +1,8 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase";
+
+
 const Crypto = createContext();
 
 const CryptoContext = ({ children }) => {
@@ -12,6 +14,8 @@ const CryptoContext = ({ children }) => {
     type: "success",
   });
   const [user, setUser] = useState(null);
+
+
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {

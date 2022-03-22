@@ -28,8 +28,8 @@
   },
   "eslintConfig": {
     "extends": [
-      "SunadApp",
-      "Sunad-App/jest"
+      "react-app",
+      "react-app/jest"
     ]
   },
   "browserslist": {

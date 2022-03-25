@@ -11,3 +11,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.bg-covid{
+  background-color: hsl(147, 57%, 19%)!important;
+}

@@ -1,6 +1,5 @@
 import { Container, makeStyles, Typography } from "@material-ui/core";
 
-
 const useStyles = makeStyles((theme) => ({
   bannerContent: {
     height: 350,
@@ -31,24 +30,24 @@ function Banner() {
       <Container className={classes.bannerContent}>
         <div className={classes.tagline}>
           <Typography
-            variant="h2"
+            variant="h1"
             style={{
               fontWeight: "bold",
               marginBottom: 15,
               fontFamily: "Montserrat",
             }}
           >
-            MACP
+            MACC
           </Typography>
           <Typography
-            variant="subtitle2"
+            variant="subtitle1"
             style={{
               color: "darkgrey",
               textTransform: "capitalize",
               fontFamily: "Montserrat",
             }}
           >
-            Bottom Text
+            Mobile App for Covid Checking
           </Typography>
         </div>
       </Container>

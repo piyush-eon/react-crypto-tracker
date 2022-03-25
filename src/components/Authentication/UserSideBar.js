@@ -70,7 +70,7 @@ export default function UserSideBar() {
                 <span
                   style={{
                     width: "100%",
-                    fontSize: 25,
+                    fontSize: 20,
                     textAlign: "center",
                     fontWeight: "bolder",
                     wordWrap: "break-word",

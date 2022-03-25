@@ -1,6 +1,6 @@
 {
-  "short_name": "MACP",
-  "name": "CovidApp",
+  "short_name": "MACC",
+  "name": "Mobile App for Covid Checking",
   "icons": [
     {
       "src": "favicon.ico",

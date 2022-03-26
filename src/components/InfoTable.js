@@ -113,7 +113,7 @@ function InfoTable() {
             variant="h6"
             style={{
               fontWeight: "normal",
-              marginBottom: 30,
+              marginBottom: 50,
               fontFamily: "Montserrat",
             }}>
               Lung volume: {Info && Info.TLC} <ProgressBar animated now={progressLung} 

@@ -1,4 +1,4 @@
-import { makeStyles, Typography } from '@material-ui/core'
+import { Dialog, DialogContent, DialogTitle, makeStyles, Typography, Button } from '@material-ui/core'
 import { CryptoState } from '../CryptoContext';
 import { useState, useEffect } from 'react'
 import React from 'react'
@@ -8,6 +8,7 @@ import ProgressBar from 'react-bootstrap/ProgressBar'
 
 function InfoTable() {
   const [Info,setInfo] = useState([]);
+  const [open,setOpen] = useState(false);
   const {user} = CryptoState();
 
   const useStyles = makeStyles((theme) => ({
@@ -30,6 +31,10 @@ function InfoTable() {
       justifyContent: "center",
       textAlign: "center",
     },
+    backdrop: {
+      zIndex: theme.zIndex.drawer + 1,
+      color: '#fff',
+    },
   }));
 
   useEffect(() => {
@@ -46,11 +51,20 @@ function InfoTable() {
   const progressTemp = Info.Temp
   const progressLung = Info.TLC
 
+  const calculate = () => {
+    setOpen(!open);
+  }
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   const classes = useStyles();
 
   return (
-    <div className={classes.header}>
-      <Typography
+    <div>
+      <div className={classes.header}>
+        <Typography
             variant="h4"
             style={{
               fontWeight: "normal",
@@ -60,38 +74,37 @@ function InfoTable() {
         >
           Info: {Info.name}
         </Typography>
+      </div>
 
       <div className={classes.element}>
         <Typography 
         variant="h6"
         style={{
           fontWeight: "normal",
-          marginBottom: 10,
+          marginBottom: 15,
           fontFamily: "Montserrat",
         }}>
-          Oxgen: <ProgressBar animated now={progressO2} 
+          Oxygen: {Info && Info.SpO2} <ProgressBar animated now={progressO2} 
               style={{height:30, width:500, backgroundColor:'#222224'}} 
               variant="warning" 
               label={`${progressO2}`} 
               max={100}/> 
-            {Info && Info.SpO2}
         </Typography>
       </div>
-      
+
         <div className={classes.element}>
           <Typography 
             variant="h6"
             style={{
               fontWeight: "normal",
-              marginBottom: 10,
+              marginBottom: 15,
               fontFamily: "Montserrat",
             }}>
-              Temp: <ProgressBar animated now={progressTemp} 
+              Temp: {Info && Info.Temp} <ProgressBar animated now={progressTemp} 
                 style={{height:30, width:500, backgroundColor:'#222224'}}
                 variant="warning"
                 label={`${progressTemp}`}
-                max={42} /> 
-              {Info && Info.Temp}
+                max={42} />
           </Typography>
         </div>
 
@@ -100,18 +113,39 @@ function InfoTable() {
             variant="h6"
             style={{
               fontWeight: "normal",
-              marginBottom: 10,
+              marginBottom: 30,
               fontFamily: "Montserrat",
             }}>
-              Lung volume: <ProgressBar animated now={progressLung} 
+              Lung volume: {Info && Info.TLC} <ProgressBar animated now={progressLung} 
               style={{height:30, width:500, backgroundColor:'#222224'}} 
               variant="warning" 
               label={`${progressLung}`}  
               max={6000} /> 
-            {Info && Info.TLC}
             </Typography>
           </div>
+
+      <div className={classes.element}>
+        <Button
+        variant="outlined" 
+        size="large"
+        style={{ backgroundColor: "#EEBC1D" }}
+        onClick={calculate}
+        >
+          Calculate
+        </Button>
+          <Dialog
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="alert-dialog-title"
+            aria-describedby="alert-dialog-description"
             
+          >
+            <DialogTitle id="alert-dialog-title">{"Result"}</DialogTitle>
+            <DialogContent>
+              hello guys
+            </DialogContent>
+        </Dialog>
+      </div>
     </div>
   )
 }

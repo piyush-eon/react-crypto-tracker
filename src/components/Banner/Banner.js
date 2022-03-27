@@ -2,10 +2,10 @@ import { Container, makeStyles, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   bannerContent: {
-    height: 350,
+    height: 325,
     display: "flex",
     flexDirection: "column",
-    paddingTop: 25,
+    paddingTop: 5,
     justifyContent: "space-around",
   },
   tagline: {

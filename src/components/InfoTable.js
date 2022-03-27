@@ -113,7 +113,7 @@ function InfoTable() {
             variant="h6"
             style={{
               fontWeight: "normal",
-              marginBottom: 50,
+              marginBottom: 40,
               fontFamily: "Montserrat",
             }}>
               Lung volume: {Info && Info.TLC} <ProgressBar animated now={progressLung} 
@@ -138,7 +138,6 @@ function InfoTable() {
             onClose={handleClose}
             aria-labelledby="alert-dialog-title"
             aria-describedby="alert-dialog-description"
-            
           >
             <DialogTitle id="alert-dialog-title">{"Result"}</DialogTitle>
             <DialogContent>

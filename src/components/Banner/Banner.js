@@ -2,7 +2,7 @@ import { Container, makeStyles, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   bannerContent: {
-    height: 325,
+    height: 300,
     display: "flex",
     flexDirection: "column",
     paddingTop: 5,

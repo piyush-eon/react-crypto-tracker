@@ -70,6 +70,7 @@ function InfoTable() {
               fontWeight: "normal",
               marginBottom: 30,
               fontFamily: "Montserrat",
+              fontSize:30,
             }}
         >
           Info: {Info.name}
@@ -84,10 +85,9 @@ function InfoTable() {
           marginBottom: 15,
           fontFamily: "Montserrat",
         }}>
-          Oxygen: {Info && Info.SpO2} <ProgressBar animated now={progressO2} 
-              style={{height:30, width:500, backgroundColor:'#222224'}} 
+          Oxygen: {Info && Info.SpO2} % <ProgressBar animated now={progressO2} 
+              style={{height:30, width:400, backgroundColor:'#222224'}} 
               variant="warning" 
-              label={`${progressO2}`} 
               max={100}/> 
         </Typography>
       </div>
@@ -100,10 +100,9 @@ function InfoTable() {
               marginBottom: 15,
               fontFamily: "Montserrat",
             }}>
-              Temp: {Info && Info.Temp} <ProgressBar animated now={progressTemp} 
-                style={{height:30, width:500, backgroundColor:'#222224'}}
+              Temp: {Info && Info.Temp} celcius <ProgressBar animated now={progressTemp} 
+                style={{height:30, width:400, backgroundColor:'#222224'}}
                 variant="warning"
-                label={`${progressTemp}`}
                 max={42} />
           </Typography>
         </div>
@@ -117,9 +116,8 @@ function InfoTable() {
               fontFamily: "Montserrat",
             }}>
               Lung volume: {Info && Info.TLC} <ProgressBar animated now={progressLung} 
-              style={{height:30, width:500, backgroundColor:'#222224'}} 
-              variant="warning" 
-              label={`${progressLung}`}  
+              style={{height:30, width:400, backgroundColor:'#222224'}} 
+              variant="warning"   
               max={6000} /> 
             </Typography>
           </div>

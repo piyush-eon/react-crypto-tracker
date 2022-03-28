@@ -31,10 +31,6 @@ function InfoTable() {
       justifyContent: "center",
       textAlign: "center",
     },
-    backdrop: {
-      zIndex: theme.zIndex.drawer + 1,
-      color: '#fff',
-    },
   }));
 
   useEffect(() => {
@@ -85,10 +81,11 @@ function InfoTable() {
           marginBottom: 15,
           fontFamily: "Montserrat",
         }}>
-          Oxygen: {Info && Info.SpO2} % <ProgressBar animated now={progressO2} 
-              style={{height:30, width:400, backgroundColor:'#222224'}} 
-              variant="warning" 
-              max={100}/> 
+          Oxygen: {Info && Info.SpO2} % <ProgressBar
+            animated now={progressO2} 
+            style={{height:30, width:300, backgroundColor:'#222224'}} 
+            variant="warning" 
+            max={100}/> 
         </Typography>
       </div>
 
@@ -100,8 +97,8 @@ function InfoTable() {
               marginBottom: 15,
               fontFamily: "Montserrat",
             }}>
-              Temp: {Info && Info.Temp} celcius <ProgressBar animated now={progressTemp} 
-                style={{height:30, width:400, backgroundColor:'#222224'}}
+              Temp: {Info && Info.Temp} celcius <ProgressBar  animated now={progressTemp} 
+                style={{height:30, width:300, backgroundColor:'#222224'}}
                 variant="warning"
                 max={42} />
           </Typography>
@@ -112,11 +109,11 @@ function InfoTable() {
             variant="h6"
             style={{
               fontWeight: "normal",
-              marginBottom: 40,
+              marginBottom: 30,
               fontFamily: "Montserrat",
             }}>
               Lung volume: {Info && Info.TLC} <ProgressBar animated now={progressLung} 
-              style={{height:30, width:400, backgroundColor:'#222224'}} 
+              style={{height:30, width:300, backgroundColor:'#222224'}} 
               variant="warning"   
               max={6000} /> 
             </Typography>
@@ -125,7 +122,7 @@ function InfoTable() {
       <div className={classes.element}>
         <Button
         variant="outlined" 
-        size="large"
+        size="medium"
         style={{ backgroundColor: "#EEBC1D" }}
         onClick={calculate}
         >

@@ -76,9 +76,9 @@ export default function Udialog() {
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"
             >
-            <DialogTitle id="alert-dialog-title">{"Result"}</DialogTitle>
+            <DialogTitle id="alert-dialog-title">{"Result"}<WarningAmberIcon /></DialogTitle>
                 <DialogContent>
-                {Risk} <WarningAmberIcon />
+                {Risk}
                 </DialogContent>
             </Dialog>
     </div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Dialog, DialogContent, DialogTitle } from '@material-ui/core';
+import { Dialog, DialogContent, DialogTitle, Typography } from '@material-ui/core';
 import { useState, useEffect } from 'react';
 import { CryptoState } from '../../CryptoContext';
 import { Button } from '@material-ui/core';
@@ -15,10 +15,17 @@ import NewReleasesIcon from '@mui/icons-material/NewReleases';
 export default function Udialog() {
 
     const useStyles = makeStyles({
-        v1: {
+        dialogPaper: {
           margin: 'center',
           display: "flex",
           flexDirection: "column",
+        },
+        text: {
+          display: "flex",
+          flexDirection: "column",
+          textAlign: "center",
+          fontSize: 30,
+          fontWeight: "normal",
         },
       });
     const classes = useStyles();
@@ -34,19 +41,19 @@ export default function Udialog() {
         // eslint-disable-next-line
         if ( Info.Risk == 1 ) {
             setRisk(c1);
-            setIcon(<CheckCircleIcon sx={{ color: green[500] }} />)
+            setIcon(<CheckCircleIcon sx={{ color: green[500], fontSize: 35 }} />)
         // eslint-disable-next-line
         } else if ( Info.Risk == 2) {
             setRisk(c2);
-            setIcon(<WarningIcon sx={{ color: orange[500] }} />)
+            setIcon(<WarningIcon sx={{ color: orange[500], fontSize: 35 }} />)
         // eslint-disable-next-line
         } else if ( Info.Risk == 3) {
             setRisk(c3);
-            setIcon(<ReportIcon sx={{ color: red[500] }} />)
+            setIcon(<ReportIcon sx={{ color: red[500], fontSize: 35 }} />)
         // eslint-disable-next-line
         } else if ( Info.Risk == 4) {
             setRisk(c4);
-            setIcon(<NewReleasesIcon sx={{ color: purple[500] }} />)
+            setIcon(<NewReleasesIcon sx={{ color: purple[500], fontSize: 35 }} />)
         } else {
             setRisk(err);
         }
@@ -83,14 +90,24 @@ export default function Udialog() {
         Calculate
         </Button>
             <Dialog
-              className={classes.v1}
               open={open}
               onClose={handleClose}
+              maxWidth='lg'
               aria-labelledby="alert-dialog-title"
               aria-describedby="alert-dialog-description"
             >
-            <DialogTitle id="alert-dialog-title">{"Result"} {Icon} </DialogTitle>
-              <DialogContent>
+            <DialogTitle>
+              <Typography 
+                style={{
+                  fontWeight: "normal",
+                  fontFamily: "Montserrat",
+                  fontSize: 30,
+                }}
+              >
+                {"Result"} {Icon}
+              </Typography>
+            </DialogTitle>
+              <DialogContent className={classes.text} style={{ height:'100px',width:'300px' }}>
               {Risk}
               </DialogContent>
             </Dialog>

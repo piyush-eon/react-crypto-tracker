@@ -6,6 +6,7 @@ import { Button } from '@material-ui/core';
 import { onSnapshot, doc } from "firebase/firestore";
 import { db } from '../../firebase';
 import { makeStyles } from '@material-ui/core';
+import { orange } from '@material-ui/core/colors';
 import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 
 export default function Udialog() {
@@ -76,7 +77,7 @@ export default function Udialog() {
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"
             >
-            <DialogTitle id="alert-dialog-title">{"Result"}<WarningAmberIcon /></DialogTitle>
+            <DialogTitle id="alert-dialog-title">{"Result"}<WarningAmberIcon sx={{ color: orange[500] }} /></DialogTitle>
                 <DialogContent>
                 {Risk}
                 </DialogContent>

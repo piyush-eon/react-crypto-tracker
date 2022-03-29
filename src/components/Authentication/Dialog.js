@@ -6,6 +6,7 @@ import { Button } from '@material-ui/core';
 import { onSnapshot, doc } from "firebase/firestore";
 import { db } from '../../firebase';
 import { makeStyles } from '@material-ui/core';
+import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 
 export default function Udialog() {
 
@@ -39,7 +40,7 @@ export default function Udialog() {
         }
     };
 
-    const c1 = 'Your risk of getting covid is very low'
+    const c1 = 'Your risk of getting covid is very low' 
     const c2 = 'Your risk of getting covid is moderate'
     const c3 = 'Your risk of getting covid is high'
     const c4 = 'Your risk of getting covid is very high'
@@ -77,7 +78,7 @@ export default function Udialog() {
             >
             <DialogTitle id="alert-dialog-title">{"Result"}</DialogTitle>
                 <DialogContent>
-                {Risk}
+                {Risk} <WarningAmberIcon />
                 </DialogContent>
             </Dialog>
     </div>

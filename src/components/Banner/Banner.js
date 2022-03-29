@@ -2,7 +2,7 @@ import { Container, makeStyles, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   bannerContent: {
-    height: 300,
+    height: 250,
     display: "flex",
     flexDirection: "column",
     paddingTop: 5,
@@ -33,7 +33,8 @@ function Banner() {
             variant="h1"
             style={{
               fontWeight: "bold",
-              marginBottom: 15,
+              marginBottom: 5,
+              fontSize: 90,
               fontFamily: "Montserrat",
             }}
           >

@@ -1,14 +1,14 @@
-import { Dialog, DialogContent, DialogTitle, makeStyles, Typography, Button } from '@material-ui/core'
+import { makeStyles, Typography} from '@material-ui/core'
 import { CryptoState } from '../CryptoContext';
 import { useState, useEffect } from 'react'
 import React from 'react'
 import { onSnapshot, doc } from "firebase/firestore";
 import { db } from "../firebase";
 import ProgressBar from 'react-bootstrap/ProgressBar'
+import Udialog from './Authentication/Dialog';
 
 function InfoTable() {
   const [Info,setInfo] = useState([]);
-  const [open,setOpen] = useState(false);
   const {user} = CryptoState();
 
   const useStyles = makeStyles((theme) => ({
@@ -48,26 +48,18 @@ function InfoTable() {
   const progressLung = Info.TLC
   const progressHR = Info.HR
 
-  const calculate = () => {
-    setOpen(!open);
-  }
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
   const classes = useStyles();
 
   return (
     <div>
       <div className={classes.header}>
         <Typography
-            variant="h4"
+            variant="h5"
             style={{
               fontWeight: "normal",
               marginBottom: 30,
               fontFamily: "Montserrat",
-              fontSize:30,
+              fontSize: 25,
             }}
         >
           Info: {Info.name}
@@ -82,11 +74,11 @@ function InfoTable() {
           marginBottom: 15,
           fontFamily: "Montserrat",
         }}>
-          Heart rate: {Info && Info.HR}/120 <ProgressBar
+          Heart rate: {Info && Info.HR}/100 BPM <ProgressBar
             animated now={progressHR} 
             style={{height:30, width:300, backgroundColor:'#222224'}} 
             variant="warning" 
-            max={120}/> 
+            max={100}/> 
         </Typography>
       </div>
 
@@ -98,7 +90,7 @@ function InfoTable() {
           marginBottom: 15,
           fontFamily: "Montserrat",
         }}>
-          Oxygen: {Info && Info.SpO2}/100 % <ProgressBar
+          Oxygen in blood: {Info && Info.SpO2}/95 % <ProgressBar
             animated now={progressO2} 
             style={{height:30, width:300, backgroundColor:'#222224'}} 
             variant="warning" 
@@ -114,7 +106,7 @@ function InfoTable() {
               marginBottom: 15,
               fontFamily: "Montserrat",
             }}>
-              Temp: {Info && Info.Temp}/42 celcius <ProgressBar  animated now={progressTemp} 
+              Temp: {Info && Info.Temp}/37.2 celcius <ProgressBar  animated now={progressTemp} 
                 style={{height:30, width:300, backgroundColor:'#222224'}}
                 variant="warning"
                 max={42} />
@@ -132,30 +124,12 @@ function InfoTable() {
               Lung volume: {Info && Info.TLC}/6000 ml <ProgressBar animated now={progressLung} 
               style={{height:30, width:300, backgroundColor:'#222224'}} 
               variant="warning"   
-              max={6000} /> 
+              max={6500} /> 
             </Typography>
           </div>
 
       <div className={classes.element}>
-        <Button
-        variant="outlined" 
-        size="medium"
-        style={{ backgroundColor: "#EEBC1D" }}
-        onClick={calculate}
-        >
-          Calculate
-        </Button>
-          <Dialog
-            open={open}
-            onClose={handleClose}
-            aria-labelledby="alert-dialog-title"
-            aria-describedby="alert-dialog-description"
-          >
-            <DialogTitle id="alert-dialog-title">{"Result"}</DialogTitle>
-            <DialogContent>
-            {Info && Info.Risk}
-            </DialogContent>
-        </Dialog>
+        <Udialog />
       </div>
     </div>
   )

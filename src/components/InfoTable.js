@@ -46,6 +46,7 @@ function InfoTable() {
   const progressO2 = Info.SpO2
   const progressTemp = Info.Temp
   const progressLung = Info.TLC
+  const progressHR = Info.HR
 
   const calculate = () => {
     setOpen(!open);
@@ -81,7 +82,23 @@ function InfoTable() {
           marginBottom: 15,
           fontFamily: "Montserrat",
         }}>
-          Oxygen: {Info && Info.SpO2} % <ProgressBar
+          Heart rate: {Info && Info.HR}/120 <ProgressBar
+            animated now={progressHR} 
+            style={{height:30, width:300, backgroundColor:'#222224'}} 
+            variant="warning" 
+            max={120}/> 
+        </Typography>
+      </div>
+
+      <div className={classes.element}>
+        <Typography 
+        variant="h6"
+        style={{
+          fontWeight: "normal",
+          marginBottom: 15,
+          fontFamily: "Montserrat",
+        }}>
+          Oxygen: {Info && Info.SpO2}/100 % <ProgressBar
             animated now={progressO2} 
             style={{height:30, width:300, backgroundColor:'#222224'}} 
             variant="warning" 
@@ -97,7 +114,7 @@ function InfoTable() {
               marginBottom: 15,
               fontFamily: "Montserrat",
             }}>
-              Temp: {Info && Info.Temp} celcius <ProgressBar  animated now={progressTemp} 
+              Temp: {Info && Info.Temp}/42 celcius <ProgressBar  animated now={progressTemp} 
                 style={{height:30, width:300, backgroundColor:'#222224'}}
                 variant="warning"
                 max={42} />
@@ -112,7 +129,7 @@ function InfoTable() {
               marginBottom: 30,
               fontFamily: "Montserrat",
             }}>
-              Lung volume: {Info && Info.TLC} <ProgressBar animated now={progressLung} 
+              Lung volume: {Info && Info.TLC}/6000 ml <ProgressBar animated now={progressLung} 
               style={{height:30, width:300, backgroundColor:'#222224'}} 
               variant="warning"   
               max={6000} /> 
@@ -136,7 +153,7 @@ function InfoTable() {
           >
             <DialogTitle id="alert-dialog-title">{"Result"}</DialogTitle>
             <DialogContent>
-              hello guys
+            {Info && Info.Risk}
             </DialogContent>
         </Dialog>
       </div>

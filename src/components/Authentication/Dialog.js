@@ -6,8 +6,11 @@ import { Button } from '@material-ui/core';
 import { onSnapshot, doc } from "firebase/firestore";
 import { db } from '../../firebase';
 import { makeStyles } from '@material-ui/core';
-import { orange } from '@material-ui/core/colors';
-import WarningAmberIcon from '@mui/icons-material/WarningAmber';
+import { orange, red, green, purple } from '@material-ui/core/colors';
+import WarningIcon from '@mui/icons-material/Warning';
+import ReportIcon from '@mui/icons-material/Report';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import NewReleasesIcon from '@mui/icons-material/NewReleases';
 
 export default function Udialog() {
 
@@ -23,30 +26,36 @@ export default function Udialog() {
     const [open,setOpen] = useState(false);
     const [Info,setInfo] = useState([]);
     const [Risk,setRisk] = useState([]);
+    const [Icon,setIcon] = useState([]);
     const { user } = CryptoState();
 
     const Calculate = () => {
         setOpen(!open);
         // eslint-disable-next-line
         if ( Info.Risk == 1 ) {
-            setRisk(c1);  
+            setRisk(c1);
+            setIcon(<CheckCircleIcon sx={{ color: green[500] }} />)
         // eslint-disable-next-line
         } else if ( Info.Risk == 2) {
             setRisk(c2);
+            setIcon(<WarningIcon sx={{ color: orange[500] }} />)
         // eslint-disable-next-line
         } else if ( Info.Risk == 3) {
             setRisk(c3);
+            setIcon(<ReportIcon sx={{ color: red[500] }} />)
+        // eslint-disable-next-line
         } else if ( Info.Risk == 4) {
             setRisk(c4);
+            setIcon(<NewReleasesIcon sx={{ color: purple[500] }} />)
         } else {
             setRisk(err);
         }
     };
 
-    const c1 = 'Your risk of getting covid is very low' 
-    const c2 = 'Your risk of getting covid is moderate'
-    const c3 = 'Your risk of getting covid is high'
-    const c4 = 'Your risk of getting covid is very high'
+    const c1 = 'ความเสี่ยงต่ำ (Low)' 
+    const c2 = 'ความเสียงปานกลาง (Moderate)'
+    const c3 = 'ความเสี่ยงสูง (High)'
+    const c4 = 'ความเสี่ยงสูงมาก (Very High)'
     const err = 'please log in first'
 
     useEffect(() => {
@@ -74,16 +83,16 @@ export default function Udialog() {
         Calculate
         </Button>
             <Dialog
-                className={classes.v1}
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="alert-dialog-title"
-                aria-describedby="alert-dialog-description"
+              className={classes.v1}
+              open={open}
+              onClose={handleClose}
+              aria-labelledby="alert-dialog-title"
+              aria-describedby="alert-dialog-description"
             >
-            <DialogTitle id="alert-dialog-title">{"Result"}<WarningAmberIcon sx={{ color: orange[500] }} /></DialogTitle>
-                <DialogContent>
-                {Risk}
-                </DialogContent>
+            <DialogTitle id="alert-dialog-title">{"Result"} {Icon} </DialogTitle>
+              <DialogContent>
+              {Risk}
+              </DialogContent>
             </Dialog>
     </div>
   )

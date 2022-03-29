@@ -14,7 +14,7 @@ const CryptoContext = ({ children }) => {
     type: "success",
   });
   const [user, setUser] = useState(null);
-
+  
 
 
   useEffect(() => {

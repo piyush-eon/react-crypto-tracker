@@ -36,8 +36,10 @@ export default function Udialog() {
         // eslint-disable-next-line
         } else if ( Info.Risk == 3) {
             setRisk(c3);
-        } else {
+        } else if ( Info.Risk == 4) {
             setRisk(c4);
+        } else {
+            setRisk(err);
         }
     };
 
@@ -45,6 +47,7 @@ export default function Udialog() {
     const c2 = 'Your risk of getting covid is moderate'
     const c3 = 'Your risk of getting covid is high'
     const c4 = 'Your risk of getting covid is very high'
+    const err = 'please log in first'
 
     useEffect(() => {
         if (user) {

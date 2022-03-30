@@ -62,7 +62,7 @@ function InfoTable() {
               fontSize: 25,
             }}
         >
-          Info: {Info.name}
+          ชื่อ: {Info.name}
         </Typography>
       </div>
 
@@ -74,7 +74,7 @@ function InfoTable() {
           marginBottom: 15,
           fontFamily: "Montserrat",
         }}>
-          Heart rate: {Info && Info.HR}/100 BPM <ProgressBar
+          อัตราการเต้นของหัวใจ: {Info && Info.HR}/100 BPM <ProgressBar
             animated now={progressHR} 
             style={{height:30, width:300, backgroundColor:'#222224'}} 
             variant="warning" 
@@ -90,7 +90,7 @@ function InfoTable() {
           marginBottom: 15,
           fontFamily: "Montserrat",
         }}>
-          Oxygen in blood: {Info && Info.SpO2}/95 % <ProgressBar
+          ออกซิเจนในเลือด: {Info && Info.SpO2}/95 % <ProgressBar
             animated now={progressO2} 
             style={{height:30, width:300, backgroundColor:'#222224'}} 
             variant="warning" 
@@ -106,7 +106,7 @@ function InfoTable() {
               marginBottom: 15,
               fontFamily: "Montserrat",
             }}>
-              Temp: {Info && Info.Temp}/37.2 celcius <ProgressBar  animated now={progressTemp} 
+              อุณหภูมิ: {Info && Info.Temp}/37.2 celcius <ProgressBar  animated now={progressTemp} 
                 style={{height:30, width:300, backgroundColor:'#222224'}}
                 variant="warning"
                 max={42} />
@@ -121,7 +121,7 @@ function InfoTable() {
               marginBottom: 30,
               fontFamily: "Montserrat",
             }}>
-              Lung volume: {Info && Info.TLC}/6000 ml <ProgressBar animated now={progressLung} 
+              ปริมาตรปอด: {Info && Info.TLC}/6000 ml <ProgressBar animated now={progressLung} 
               style={{height:30, width:300, backgroundColor:'#222224'}} 
               variant="warning"   
               max={6500} /> 

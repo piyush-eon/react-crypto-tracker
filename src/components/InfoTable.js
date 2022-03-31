@@ -45,7 +45,7 @@ function InfoTable() {
 
   const progressO2 = Info.SpO2
   const progressTemp = Info.Temp
-  const progressLung = Info.TLC
+  const progressLung = Info.VC
   const progressHR = Info.HR
 
   const classes = useStyles();
@@ -74,11 +74,12 @@ function InfoTable() {
           marginBottom: 15,
           fontFamily: "Montserrat",
         }}>
-          อัตราการเต้นของหัวใจ: {Info && Info.HR}/100 BPM <ProgressBar
+          อัตราการเต้นของหัวใจ: {Info && Info.HR}/120 BPM <ProgressBar
             animated now={progressHR} 
             style={{height:30, width:300, backgroundColor:'#222224'}} 
             variant="warning" 
-            max={100}/> 
+            max={120}
+            label={Info.HRstate} /> 
         </Typography>
       </div>
 
@@ -90,11 +91,12 @@ function InfoTable() {
           marginBottom: 15,
           fontFamily: "Montserrat",
         }}>
-          ออกซิเจนในเลือด: {Info && Info.SpO2}/95 % <ProgressBar
+          ออกซิเจนในเลือด: {Info && Info.SpO2}/100 % <ProgressBar
             animated now={progressO2} 
             style={{height:30, width:300, backgroundColor:'#222224'}} 
             variant="warning" 
-            max={100}/> 
+            max={100} 
+            label={Info.SpO2state} /> 
         </Typography>
       </div>
 
@@ -106,10 +108,11 @@ function InfoTable() {
               marginBottom: 15,
               fontFamily: "Montserrat",
             }}>
-              อุณหภูมิ: {Info && Info.Temp}/37.2 celcius <ProgressBar  animated now={progressTemp} 
+              อุณหภูมิ: {Info && Info.Temp}/39 celcius <ProgressBar  animated now={progressTemp} 
                 style={{height:30, width:300, backgroundColor:'#222224'}}
                 variant="warning"
-                max={42} />
+                max={42}
+                label={Info.Tempstate} />
           </Typography>
         </div>
 
@@ -121,10 +124,11 @@ function InfoTable() {
               marginBottom: 30,
               fontFamily: "Montserrat",
             }}>
-              ปริมาตรปอด: {Info && Info.TLC}/6000 ml <ProgressBar animated now={progressLung} 
+              ปริมาตรปอด: {Info && Info.VC}/5000 ml <ProgressBar animated now={progressLung} 
               style={{height:30, width:300, backgroundColor:'#222224'}} 
               variant="warning"   
-              max={6500} /> 
+              max={5000}
+              label={Info.VCstate} /> 
             </Typography>
           </div>
 

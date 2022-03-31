@@ -39,19 +39,19 @@ export default function Udialog() {
     const Calculate = () => {
         setOpen(!open);
         // eslint-disable-next-line
-        if ( Info.Risk == 1 ) {
+        if ( Info.Risk == 0 ) {
             setRisk(c1);
             setIcon(<CheckCircleIcon sx={{ color: green[500], fontSize: 35 }} />)
         // eslint-disable-next-line
-        } else if ( Info.Risk == 2 ) {
+        } else if ( Info.Risk == 1 ) {
             setRisk(c2);
             setIcon(<WarningIcon sx={{ color: orange[500], fontSize: 35 }} />)
         // eslint-disable-next-line
-        } else if ( Info.Risk == 3 ) {
+        } else if ( Info.Risk == 2 ) {
             setRisk(c3);
             setIcon(<ReportIcon sx={{ color: red[500], fontSize: 35 }} />)
         // eslint-disable-next-line
-        } else if ( Info.Risk == 4 ) {
+        } else if ( Info.Risk == 3 ) {
             setRisk(c4);
             setIcon(<NewReleasesIcon sx={{ color: purple[500], fontSize: 35 }} />)
         } else {

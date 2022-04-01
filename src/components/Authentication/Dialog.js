@@ -1,7 +1,7 @@
 import React from 'react'
 import { Dialog, DialogContent, DialogTitle, Typography } from '@material-ui/core';
 import { useState, useEffect } from 'react';
-import { CryptoState } from '../../CryptoContext';
+import { CryptoState } from '../../Context';
 import { Button } from '@material-ui/core';
 import { onSnapshot, doc } from "firebase/firestore";
 import { db } from '../../firebase';

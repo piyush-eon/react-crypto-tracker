@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { Box, Button, TextField } from "@material-ui/core";
-import { CryptoState } from '../../CryptoContext';
+import { CryptoState } from '../../Context';
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth , db } from "../../firebase";
 import { doc, setDoc } from "firebase/firestore";

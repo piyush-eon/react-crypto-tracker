@@ -2,7 +2,7 @@ import { Box, Button, TextField } from '@material-ui/core';
 import React, { useState } from 'react'
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
-import { CryptoState } from '../../CryptoContext';
+import { CryptoState } from '../../Context';
 
 const Login = ( {handleClose} ) => {
     const [email,setEmail] = useState("");

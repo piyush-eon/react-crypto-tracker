@@ -1,5 +1,5 @@
 import { makeStyles, Typography} from '@material-ui/core'
-import { CryptoState } from '../CryptoContext';
+import { CryptoState } from '../Context';
 import { useState, useEffect } from 'react'
 import React from 'react'
 import { onSnapshot, doc } from "firebase/firestore";

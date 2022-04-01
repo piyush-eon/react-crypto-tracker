@@ -6,7 +6,6 @@ import { auth } from "./firebase";
 const Crypto = createContext();
 
 const CryptoContext = ({ children }) => {
-  const [currency, setCurrency] = useState("INR");
   const [symbol,] = useState("₹");
   const [alert, setAlert] = useState({
     open: false,
@@ -25,7 +24,7 @@ const CryptoContext = ({ children }) => {
   }, []);
 
   return (
-    <Crypto.Provider value={{ currency, setCurrency, symbol, alert, setAlert, user, setUser, }}>
+    <Crypto.Provider value={{ symbol, alert, setAlert, user, setUser, }}>
       {children}
     </Crypto.Provider>
   );

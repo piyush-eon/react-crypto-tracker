@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
-import { CryptoState } from "../../CryptoContext";
+import { CryptoState } from "../../Context";
 import { signOut } from "firebase/auth";
 import { auth } from '../../firebase';
 import { Avatar } from '@material-ui/core';

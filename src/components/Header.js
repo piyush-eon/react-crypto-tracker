@@ -10,7 +10,7 @@ import {
   ThemeProvider,
 } from "@material-ui/core/styles";
 import { useHistory } from "react-router-dom";
-import { CryptoState } from "../CryptoContext";
+import { CryptoState } from "../Context";
 import AuthModal from "./Authentication/AuthModal";
 import UserSideBar from "./Authentication/UserSideBar";
 

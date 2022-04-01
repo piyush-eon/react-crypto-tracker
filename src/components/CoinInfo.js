@@ -10,7 +10,7 @@ import {
 } from "@material-ui/core";
 import SelectButton from "./SelectButton";
 import { chartDays } from "../config/data";
-import { CryptoState } from "../CryptoContext";
+import { CryptoState } from "../Context";
 
 const CoinInfo = ({ coin }) => {
   const [historicData, setHistoricData] = useState();

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Dialog, DialogContent, DialogTitle, Typography } from '@material-ui/core';
+import { Dialog, DialogActions, DialogContent, DialogTitle, Typography } from '@material-ui/core';
 import { useState, useEffect } from 'react';
 import { CryptoState } from '../../Context';
 import { Button } from '@material-ui/core';
@@ -11,6 +11,7 @@ import WarningIcon from '@mui/icons-material/Warning';
 import ReportIcon from '@mui/icons-material/Report';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import NewReleasesIcon from '@mui/icons-material/NewReleases';
+import { useHistory } from 'react-router-dom';
 
 export default function Udialog() {
 
@@ -34,6 +35,7 @@ export default function Udialog() {
     const [Info,setInfo] = useState([]);
     const [Risk,setRisk] = useState([]);
     const [Icon,setIcon] = useState([]);
+    const history = useHistory();
     const { user } = CryptoState();
 
     const Calculate = () => {
@@ -107,9 +109,14 @@ export default function Udialog() {
                 {"Result"} {Icon}
               </Typography>
             </DialogTitle>
-              <DialogContent className={classes.text} style={{ height:'100px',width:'300px' }}>
+              <DialogContent className={classes.text} style={{ height:'90px',width:'300px' }}>
               {Risk}
               </DialogContent>
+              <DialogActions>
+                <Button onClick={() => history.push('/info')} color="primary">
+                ดูข้อมูล
+                </Button>
+              </DialogActions>
             </Dialog>
     </div>
   )

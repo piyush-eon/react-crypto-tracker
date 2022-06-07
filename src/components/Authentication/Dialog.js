@@ -113,9 +113,9 @@ export default function Udialog() {
               {Risk}
               </DialogContent>
               <DialogActions>
-                <Button onClick={() => history.push('/info')} color="primary">
+                {/* <Button onClick={() => history.push('/info')} color="primary">
                 ดูข้อมูล
-                </Button>
+                </Button> */}
               </DialogActions>
             </Dialog>
     </div>

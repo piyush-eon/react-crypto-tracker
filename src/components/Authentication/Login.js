@@ -3,11 +3,17 @@ import React, { useState } from 'react'
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
 import { CryptoState } from '../../Context';
+import PasswordForgot from './PasswordForgot';
 
 const Login = ( {handleClose} ) => {
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
     const { setAlert } = CryptoState();
+    const [open, setOpen] = React.useState(false);
+
+    const handleOpen = () => {
+        setOpen(true);
+    }
 
     const handleSubmit = async () => {
       if (!email || !password) {
@@ -41,7 +47,7 @@ const Login = ( {handleClose} ) => {
   return (
     <Box p={3}    style={{ display: "flex", flexDirection: "column", gap: "20px"}}
     >
-              <TextField
+      <TextField
         variant="outlined"
         type="email"
         label="Enter Email"
@@ -65,6 +71,10 @@ const Login = ( {handleClose} ) => {
       >
         Log In
       </Button>
+      <Button onClick={handleOpen} color="primary">
+        password forgotten?
+      </Button>
+      <PasswordForgot open={open}/>
     </Box>
   )
 }

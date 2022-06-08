@@ -49,7 +49,7 @@ const CoinInfo = ({ coin }) => {
   useEffect(() => {
     fetchHistoricData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [days]);
+  }, [currency,days]);
 
   const darkTheme = createTheme({
     palette: {

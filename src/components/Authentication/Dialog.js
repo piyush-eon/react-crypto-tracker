@@ -11,7 +11,7 @@ import WarningIcon from '@mui/icons-material/Warning';
 import ReportIcon from '@mui/icons-material/Report';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import NewReleasesIcon from '@mui/icons-material/NewReleases';
-import { useHistory } from 'react-router-dom';
+
 
 export default function Udialog() {
 
@@ -35,7 +35,6 @@ export default function Udialog() {
     const [Info,setInfo] = useState([]);
     const [Risk,setRisk] = useState([]);
     const [Icon,setIcon] = useState([]);
-    const history = useHistory();
     const { user } = CryptoState();
 
     const Calculate = () => {
@@ -113,9 +112,6 @@ export default function Udialog() {
               {Risk}
               </DialogContent>
               <DialogActions>
-                {/* <Button onClick={() => history.push('/info')} color="primary">
-                ดูข้อมูล
-                </Button> */}
               </DialogActions>
             </Dialog>
     </div>

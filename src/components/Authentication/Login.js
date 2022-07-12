@@ -74,7 +74,7 @@ const Login = ( {handleClose} ) => {
       <Button onClick={handleOpen} color="primary">
         password forgotten?
       </Button>
-      <PasswordForgot open={open}/>
+      {/* <PasswordForgot open={open}/> */}
     </Box>
   )
 }

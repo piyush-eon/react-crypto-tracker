@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core";
 import Homepage from "./Pages/HomePage";
 import "./App.css";
 import { BrowserRouter, Route } from "react-router-dom";
-import RiskPage from "./Pages/RiskPage";
+import ListPage from "./Pages/ListPage";
 import Header from "./components/Header";
 import Alert from "./components/Alert";
 
@@ -21,8 +21,8 @@ function App() {
     <BrowserRouter>
       <div className={classes.App}>
         <Header />
-        <Route path="/" component={Homepage} exact />
-        <Route path="/info" component={RiskPage} exact />
+        <Route path="/info" component={Homepage} exact />
+        <Route path="/" component={ListPage} exact />
       </div>
       <Alert/>
     </BrowserRouter>

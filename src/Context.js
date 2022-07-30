@@ -1,12 +1,25 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged, sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "./firebase";
 
+const Covid = createContext();
 
-const Crypto = createContext();
+const AuthContext = createContext({
+  login: () => Promise,
+  register: () => Promise,
+  logout: () => Promise,
+  forgotPassword: () => Promise,
+})
+
+export const useAuth = () => useContext(AuthContext)
+
+function forgotPassword(email) {
+  return sendPasswordResetEmail(auth, email, {
+    url: `http://localhost:3000/login`,
+  })
+}
 
 const CryptoContext = ({ children }) => {
-  const [symbol,] = useState("₹");
   const [alert, setAlert] = useState({
     open: false,
     message: "",
@@ -14,7 +27,6 @@ const CryptoContext = ({ children }) => {
   });
   const [user, setUser] = useState(null);
   
-
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -24,14 +36,14 @@ const CryptoContext = ({ children }) => {
   }, []);
 
   return (
-    <Crypto.Provider value={{ symbol, alert, setAlert, user, setUser, }}>
+    <Covid.Provider value={{ alert, setAlert, user, setUser,forgotPassword }}>
       {children}
-    </Crypto.Provider>
+    </Covid.Provider>
   );
 };
 
 export default CryptoContext;
 
 export const CryptoState = () => {
-  return useContext(Crypto);
+  return useContext(Covid);
 };

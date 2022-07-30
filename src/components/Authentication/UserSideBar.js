@@ -6,6 +6,7 @@ import { CryptoState } from "../../Context";
 import { signOut } from "firebase/auth";
 import { auth } from '../../firebase';
 import { Avatar } from '@material-ui/core';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles({
     container: {
@@ -33,6 +34,7 @@ export default function UserSideBar() {
     left: false,
   });
   const { user, setAlert } = CryptoState();
+  const history = useHistory();
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -41,6 +43,7 @@ export default function UserSideBar() {
 
     setState({ ...state, [anchor]: open });
   };
+  
 
   const logOut = () => {
     signOut(auth);
@@ -78,6 +81,20 @@ export default function UserSideBar() {
                 >
                   {user.displayName || user.email}
                 </span>
+                  <Button 
+                  variant="contained"
+                  color='secondary'
+                  onClick={() => history.push(`/info`)}
+                  >
+                    See Data
+                  </Button>
+                  <Button 
+                  variant="contained"
+                  color='primary'
+                  onClick={() => history.push(`/`)}
+                  >
+                    Homepage
+                  </Button>
               </div>
                   <Button
                   variant="contained"

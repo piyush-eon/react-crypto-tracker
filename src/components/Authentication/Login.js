@@ -1,18 +1,40 @@
 import { Box, Button, TextField } from '@material-ui/core';
 import React, { useState } from 'react'
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword , sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../../firebase";
 import { CryptoState } from '../../Context';
-import PasswordForgot from './PasswordForgot';
 
 const Login = ( {handleClose} ) => {
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
     const { setAlert } = CryptoState();
-    const [open, setOpen] = React.useState(false);
 
-    const handleOpen = () => {
-        setOpen(true);
+    const handleSend = async () => {
+      if (!email) {
+        setAlert({
+          open: true,
+          message: "Please fill in your email",
+          type: "error",
+        });
+        return;
+      }
+      try {
+        await sendPasswordResetEmail(auth,email);
+        setAlert({
+          open: true,
+          message: `An email is sent to ${email} for password reset instructions.`,
+          type: "success",
+        });
+
+      handleClose();
+    } catch (error) {
+      setAlert({
+        open: true,
+        message: error.message,
+        type: "error",
+      });
+      return;
+    }
     }
 
     const handleSubmit = async () => {
@@ -71,7 +93,7 @@ const Login = ( {handleClose} ) => {
       >
         Log In
       </Button>
-      <Button onClick={handleOpen} color="primary">
+      <Button onClick={handleSend} color="primary">
         password forgotten?
       </Button>
       {/* <PasswordForgot open={open}/> */}

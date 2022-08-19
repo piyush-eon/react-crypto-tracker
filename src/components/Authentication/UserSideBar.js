@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 import { CryptoState } from "../../Context";
 import { signOut } from "firebase/auth";
 import { auth } from '../../firebase';
-import { Avatar } from '@material-ui/core';
+import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles({
@@ -58,14 +58,13 @@ export default function UserSideBar() {
     <div>
       {['right'].map((anchor) => (
         <React.Fragment key={anchor}>
-          <Avatar
+          <FormatListBulletedIcon
             onClick={toggleDrawer(anchor, true)}
             style={{
               height: 38,
               width: 38,
               marginLeft: 15,
               cursor: "pointer",
-              backgroundColor: "#EEBC1D",
             }}
           />
         <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>

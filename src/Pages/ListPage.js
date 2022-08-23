@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React, { useState } from 'react'
-import { useParams } from 'react-router-dom';
 import Banner from "../components/Banner/Banner";
 import CovidInfo from '../components/CovidInfo';
 import { DailyList } from '../config/api';
@@ -10,11 +9,10 @@ import DDC from "../logo_web.png"
 
 const ListPage = () => {
 
-  const { id } = useParams()
   const [daily, setDaily] = useState()
 
   const fetchDaily = async () => {
-    const { data } = await axios.get(DailyList(id));
+    const { data } = await axios.get(DailyList());
     
     setDaily(data);
   };
@@ -57,12 +55,21 @@ const ListPage = () => {
       paddingTop: 0,
       textAlign: "center",
     },
+    date: {
+      alignSelf: "start",
+      padding: 25,
+      paddingTop: 10,
+      width: "100%",
+      [theme.breakpoints.down("md")]: {
+        display: "flex",
+        justifyContent: "space-around",
+      }},
   }));
 
   const classes = useStyles();
 
   return (
-    <>
+  <>
     <Banner />
     <div className={classes.container}>
       <div className={classes.sidebar}>
@@ -71,12 +78,17 @@ const ListPage = () => {
         />
         <Typography variant="h3" className={classes.heading}>Daily covid information</Typography>
         <Typography varient="subtitle1" className={classes.desc}>Information taken from Department of Disease Control</Typography> 
+        <div className={classes.marketData}>
+          <span style={{ display: "flex" }}>
+            <Typography variant="h5" className={classes.heading}>
+            รายงานวันที่ {daily&&daily[0].txn_date}
+            </Typography>
+          </span>
       </div>
-      <CovidInfo daily={daily} />
     </div>
-
-
-    </>
+    <CovidInfo daily={daily} />
+    </div>
+  </>
 )}
 
 export default ListPage

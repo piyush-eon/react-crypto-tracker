@@ -36,12 +36,14 @@ function InfoTable() {
   useEffect(() => {
     if (user) {
       onSnapshot(doc(db, "users", user.uid), (doc) => {
-      const data = doc.data( );
+      const data = doc.data();
       setInfo(data);
     },
       )
     }
   }, [user])
+
+  console.log(Info);
 
   const progressO2 = Info.SpO2
   const progressTemp = Info.Temp
@@ -108,7 +110,7 @@ function InfoTable() {
               marginBottom: 15,
               fontFamily: "Montserrat",
             }}>
-              อุณหภูมิ: {Info && Info.Temp}/39 celcius <ProgressBar  animated now={progressTemp} 
+              อุณหภูมิ: {Info && Info.Temp}/38 celcius <ProgressBar  animated now={progressTemp} 
                 style={{height:30, width:300, backgroundColor:'#222224'}}
                 variant="warning"
                 max={42}

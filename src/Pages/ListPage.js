@@ -25,20 +25,22 @@ const ListPage = () => {
   const useStyles = makeStyles((theme) => ({
     container: {
       display: "flex",
+      marginLeft: 40,
       [theme.breakpoints.down("md")]: {
         flexDirection: "column",
         alignItems: "center",
       },
     },
     sidebar: {
-      width: "30%",
+      width: "50%",
       [theme.breakpoints.down("md")]: {
         width: "100%",
       },
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
-      marginTop: 25,
+      marginTop: 20,
+      marginRight: 20,
       borderRight: "2px solid grey",
     },
     heading: {
@@ -81,7 +83,7 @@ const ListPage = () => {
         <div className={classes.marketData}>
           <span style={{ display: "flex" }}>
             <Typography variant="h5" className={classes.heading}>
-            รายงานวันที่ {daily&&daily[0].txn_date}
+            อัพเดทล่าสุดวันที่ {daily&&daily[0].txn_date}
             </Typography>
           </span>
       </div>

@@ -47,7 +47,7 @@ export default function UserSideBar() {
 
   const logOut = () => {
     signOut(auth);
-    window.location.reload(false);
+    window.location.reload();
     setAlert({
       open: true,
       type: "success",

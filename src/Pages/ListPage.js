@@ -40,7 +40,6 @@ const ListPage = () => {
       flexDirection: "column",
       alignItems: "center",
       marginTop: 20,
-      marginRight: 10,
       borderRight: "2px solid grey",
     },
     heading: {

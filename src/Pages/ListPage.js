@@ -25,7 +25,7 @@ const ListPage = () => {
   const useStyles = makeStyles((theme) => ({
     container: {
       display: "flex",
-      marginLeft: 40,
+      marginLeft: 20,
       [theme.breakpoints.down("md")]: {
         flexDirection: "column",
         alignItems: "center",

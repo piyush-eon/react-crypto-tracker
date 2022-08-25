@@ -38,7 +38,7 @@ function Banner() {
               fontFamily: "Montserrat",
             }}
           >
-            MACIU
+            MACC
           </Typography>
           <Typography
             variant="subtitle1"
@@ -48,7 +48,7 @@ function Banner() {
               fontFamily: "Montserrat",
             }}
           >
-            Mobile App for Covid-19 Information Updates
+            Mobile App for Covid-19 Checkup
           </Typography>
         </div>
       </Container>

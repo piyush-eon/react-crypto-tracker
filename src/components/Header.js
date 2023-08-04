@@ -1,8 +1,6 @@
 import {
   AppBar,
   Container,
-  MenuItem,
-  Select,
   Toolbar,
   Typography,
 } from "@material-ui/core";
@@ -12,7 +10,10 @@ import {
   ThemeProvider,
 } from "@material-ui/core/styles";
 import { useHistory } from "react-router-dom";
-import { CryptoState } from "../CryptoContext";
+import { CryptoState } from "../Context";
+import AuthModal from "./Authentication/AuthModal";
+import UserSideBar from "./Authentication/UserSideBar";
+
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -23,6 +24,8 @@ const useStyles = makeStyles((theme) => ({
     cursor: "pointer",
   },
 }));
+
+
 
 const darkTheme = createTheme({
   palette: {
@@ -35,7 +38,7 @@ const darkTheme = createTheme({
 
 function Header() {
   const classes = useStyles();
-  const { currency, setCurrency } = CryptoState();
+  const {user} = CryptoState();
 
   const history = useHistory();
 
@@ -49,20 +52,11 @@ function Header() {
               variant="h6"
               className={classes.title}
             >
-              Crypto Hunter
+              SunadApp
             </Typography>
             {/* <Button color="inherit">Login</Button> */}
-            <Select
-              variant="outlined"
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              value={currency}
-              style={{ width: 100, height: 40, marginLeft: 15 }}
-              onChange={(e) => setCurrency(e.target.value)}
-            >
-              <MenuItem value={"USD"}>USD</MenuItem>
-              <MenuItem value={"INR"}>INR</MenuItem>
-            </Select>
+            
+            {user ? <UserSideBar /> : <AuthModal />}
           </Toolbar>
         </Container>
       </AppBar>

@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "MACC",
+  "name": "Mobile App for Covid Checking",
   "icons": [
     {
       "src": "favicon.ico",

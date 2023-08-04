@@ -1,15 +1,11 @@
 import { Container, makeStyles, Typography } from "@material-ui/core";
-import Carousel from "./Carousel";
 
 const useStyles = makeStyles((theme) => ({
-  banner: {
-    backgroundImage: "url(./banner2.jpg)",
-  },
   bannerContent: {
-    height: 400,
+    height: 250,
     display: "flex",
     flexDirection: "column",
-    paddingTop: 25,
+    paddingTop: 5,
     justifyContent: "space-around",
   },
   tagline: {
@@ -34,27 +30,27 @@ function Banner() {
       <Container className={classes.bannerContent}>
         <div className={classes.tagline}>
           <Typography
-            variant="h2"
+            variant="h1"
             style={{
               fontWeight: "bold",
-              marginBottom: 15,
+              marginBottom: 5,
+              fontSize: 90,
               fontFamily: "Montserrat",
             }}
           >
-            Crypto Hunter
+            MACC
           </Typography>
           <Typography
-            variant="subtitle2"
+            variant="subtitle1"
             style={{
               color: "darkgrey",
               textTransform: "capitalize",
               fontFamily: "Montserrat",
             }}
           >
-            Get all the Info regarding your favorite Crypto Currency
+            Mobile App for Covid-19 Checkup
           </Typography>
         </div>
-        <Carousel />
       </Container>
     </div>
   );

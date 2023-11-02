@@ -35,10 +35,10 @@ export default function CoinsTable() {
 
   const useStyles = makeStyles({
     row: {
-      backgroundColor: "#16171a",
+      backgroundColor: "#FFF",
       cursor: "pointer",
       "&:hover": {
-        backgroundColor: "#131111",
+        backgroundColor: "#DDD",
       },
       fontFamily: "Montserrat",
     },
@@ -56,8 +56,9 @@ export default function CoinsTable() {
     palette: {
       primary: {
         main: "#fff",
+        light: true
       },
-      type: "dark",
+      type: "light",
     },
   });
 
@@ -85,7 +86,7 @@ export default function CoinsTable() {
 
   return (
     <ThemeProvider theme={darkTheme}>
-      <Container style={{ textAlign: "center" }}>
+      <Container style={{ textAlign: "center", backgroundColor: "white" }}>
         <Typography
           variant="h4"
           style={{ margin: 18, fontFamily: "Montserrat" }}

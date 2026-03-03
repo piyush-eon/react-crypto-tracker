@@ -41,7 +41,7 @@ function Banner() {
               fontFamily: "Montserrat",
             }}
           >
-            Crypto Hunter
+            Crypto Bharath
           </Typography>
           <Typography
             variant="subtitle2"
